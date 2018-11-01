@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpflight"
         mc:Ignorable="d"
         DataContext="{Binding WelCome,Source={StaticResource Locator}}"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Title" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding WelcomModel.Introduction}" Style="{StaticResource BigFont}"></TextBlock>
