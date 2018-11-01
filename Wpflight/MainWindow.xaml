@@ -5,11 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpflight"
         mc:Ignorable="d"
-        DataContext="{Binding WelCome,Source={StaticResource Locator}}"
+        DataContext="{Binding Main,Source={StaticResource Locator}}"
         Title="Title" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="{Binding WelcomModel.Introduction}" Style="{StaticResource BigFont}"></TextBlock>
+            <!--<TextBlock Text="{Binding Trees.Trees}" Style="{StaticResource BigFont}"></TextBlock>-->
+            <TreeView ItemsSource="{Binding Trees}" Width="200" Height="300">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                        <Setter Property="IsSelected" Value="{Binding IsSelected,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate  ItemsSource="{Binding Children}">
+                        <TextBlock VerticalAlignment="Center" Text="{Binding itemName}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                    </HierarchicalDataTemplate>
+
+                </TreeView.ItemTemplate>
+            </TreeView>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
 using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
+using Wpflight.Model;
 
 namespace Wpflight.ViewModel
 {
@@ -29,6 +31,23 @@ namespace Wpflight.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            ///
+            var tree = new ItemTreeData();
+            tree.itemName = "第一级别";
+            tree.itemId = 1;
+            tree.Children.Add(new ItemTreeData() { itemId = 2,itemParent=1, itemName = "testtree", itemStep = 1 });
+            _trees.Add(tree);
+        }
+
+        private ObservableCollection<ItemTreeData> _trees = new ObservableCollection<ItemTreeData>();
+
+        public ObservableCollection<ItemTreeData> Trees
+        {
+            get
+            {
+                return _trees;
+            }
+            set => _trees = value;
         }
     }
 }
