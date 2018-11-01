@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Wpflight.Skins">
+    <Style x:Key="BigFont" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"></Setter>
+    </Style>
+</ResourceDictionary>
